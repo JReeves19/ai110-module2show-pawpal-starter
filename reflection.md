@@ -7,6 +7,11 @@
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
 
+Three actions:
+- Adding a pet
+- Schedule feeding
+- Schedule a walk
+
 **b. Design changes**
 
 - Did your design change during implementation?
