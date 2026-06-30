@@ -6,6 +6,33 @@
 
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
+UML Design:
+|-----------------------|
+|   Owner               |
+|-----------------------|
+|+name: str             |
+|+pets: list[Pet]       |
+|-----------------------|
+|+addPet(pet): void     |
+|+addTask(task): void   |
+|+removeTask(task): void|
+|-----------------------|
+         | 1
+         | owns
+         | *
+         V
+|-----------------------|
+|    Pet                |
+|-----------------------|
+|+name: str             |
+|+owner: Owner          |
+|+tasks: list[Task]     |
+|-----------------------|
+Classes I chose:
+- Owner: contains data of the pet owner, the pet, and a list of task(s). This class is responsible to hold attributes, methods and basic information pertaining to the owner.
+- Pet: a pure data class that contains the name, owner and task(s) of a pet. This class provides data of the pet.
+- Task: manages the task(s) of the owner and pet, filter tasks by priority, and tracks the status of tasks.
+- Scheduler: contains attributes by which tasks are scheduled.
 
 Three actions:
 - Adding a pet
@@ -16,7 +43,10 @@ Three actions:
 
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
-
+Changes:
+- Added scheduler attribute to Task class because a task needs to be scheduled and linked to Scheduler class.
+- Removed priority attribute from Scheduler so that only it is set based on the task. It now only lives in the Task class.
+- Added completed attribute to Task class to track the completion of a task.
 ---
 
 ## 2. Scheduling Logic and Tradeoffs
