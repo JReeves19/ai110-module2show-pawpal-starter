@@ -61,6 +61,8 @@ Changes:
 - Describe one tradeoff your scheduler makes.
 - Why is that tradeoff reasonable for this scenario?
 
+My scheduler doesn't keep any separate lookup table to speed up queries like "what's due now" or "what conflicts with what." Every time I ask it one of these questions, it just scans through all the tasks again instead of remembering the answer from last time. The tradeoff is that this makes each query a little slower as the number of tasks grows, but it also means there's no extra bookkeeping to keep in sync. I never have to worry about a cached list getting out of date when a task is added, completed, or removed. For a pet-care app where one owner might have a few dozen tasks at most, that simplicity is worth more than the small speed gain, so I think it's a reasonable tradeoff.
+
 ---
 
 ## 3. AI Collaboration
